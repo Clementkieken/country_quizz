@@ -1,8 +1,13 @@
+import { useSelector } from 'react-redux';
 import './styles.scss';
 
-const Question = () => (
-  <h2>Quel est le premier pays producteur de bananes en Europe continentale ?</h2>
+const Question = () => {
+  const { quiz, index } = useSelector((state) => state);
+  const currentQuestion = quiz[index].title;
 
-);
+  return (
+    <h2>{currentQuestion}</h2>
+  );
+};
 
 export default Question;

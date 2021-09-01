@@ -1,4 +1,4 @@
-import { CHANGE_INDEX } from '../actions';
+import { CHANGE_INDEX, UPDATE_SELECTED_ANSWER } from '../actions';
 
 const initialState = {
   quiz: [
@@ -26,6 +26,7 @@ const initialState = {
   ],
   index: 0,
   score: 0,
+  selectedAnswer: undefined,
 };
 
 export default (state = initialState, action = {}) => {
@@ -34,6 +35,11 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         index: state.index + 1,
+      };
+    case UPDATE_SELECTED_ANSWER:
+      return {
+        ...state,
+        selectedAnswer: action.value,
       };
     default:
       return state;
